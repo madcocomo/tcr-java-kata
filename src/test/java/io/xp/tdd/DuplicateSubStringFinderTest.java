@@ -23,9 +23,4 @@ public class DuplicateSubStringFinderTest {
             Arguments.of("a", "")
         );
     }
-
-    @Test
-    void get_empty_from_single_character() {
-        assertEquals("", finder.longest("a"));
-    }
 }
