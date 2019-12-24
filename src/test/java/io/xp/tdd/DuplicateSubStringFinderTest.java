@@ -9,11 +9,11 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DuplicateSubStringFinderTest {
-    DuplicateSubStringFinder finder = new DuplicateSubStringFinder();
     @ParameterizedTest
     @MethodSource("inputAndExpect")
     void get_empty_from_empty(String input, String expect) {
-        assertEquals(expect, finder.longest(input));
+        DuplicateSubStringFinder finder = new DuplicateSubStringFinder(input);
+        assertEquals(expect, finder.longest());
     }
 
     static Stream<Arguments> inputAndExpect() {
