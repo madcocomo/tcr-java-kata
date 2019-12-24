@@ -23,10 +23,6 @@ public class DuplicateSubStringFinder {
             String candidate = subString(index, index + length);
             if (!isDuplicatedAfter(index, candidate)) return length-1;
         }
-        for (int length = str.length() - index-1; length > 0; length--) {
-            String candidate = subString(index, index + length);
-            if (isDuplicatedAfter(index, candidate)) return length;
-        }
         return 0;
     }
 
