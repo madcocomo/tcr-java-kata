@@ -9,10 +9,14 @@ public class DuplicateSubStringFinder {
 
     public String longest() {
         if (str.length() > 1) {
-            if (str.substring(0, 1).equals(str.substring(1, 2))) {
-                return str.substring(0, 1);
+            if (subString(0, 1).equals(subString(1, 2))) {
+                return subString(0, 1);
             }
         }
         return "";
+    }
+
+    private String subString(int i, int i2) {
+        return str.substring(i, i2);
     }
 }
