@@ -11,9 +11,10 @@ public class DuplicateSubStringFinder {
         if (str.length() > 1) {
             for (int i = 0; i < str.length(); i++) {
                 for (int k = str.length() - i; k > 0; k--) {
+                    String candidate = subString(i, i + k);
                     for (int j = i+1; j+k <= str.length(); j++) {
-                        if (subString(i, i+k).equals(subString(j, j+k))) {
-                            return subString(i, i+k);
+                        if (candidate.equals(subString(j, j+k))) {
+                            return candidate;
                         }
                     }
                 }
