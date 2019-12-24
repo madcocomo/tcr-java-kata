@@ -8,11 +8,14 @@ public class DuplicateSubStringFinder {
     }
 
     public String longest() {
+        String result = "";
         for (int i = 0; i < str.length(); i++) {
             String candidate = findDuplicateAt(i);
-            if (!candidate.equals("")) return candidate;
+            if (candidate.length() > result.length()) {
+                result = candidate;
+            }
         }
-        return "";
+        return result;
     }
 
     private String findDuplicateAt(int index) {
