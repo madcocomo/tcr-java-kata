@@ -16,11 +16,6 @@ public class DuplicateSubStringFinder {
                     }
                 }
             }
-            for (int j = 1; j < str.length(); j++) {
-                if (subString(1, 2).equals(subString(j, j+1))) {
-                    return subString(1, 2);
-                }
-            }
         }
         return "";
     }
