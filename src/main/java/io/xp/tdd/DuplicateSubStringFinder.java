@@ -10,17 +10,17 @@ public class DuplicateSubStringFinder {
     public String longest() {
         for (int i = 0; i < str.length(); i++) {
             String candidate = findDuplicateAt(i);
-            if (candidate != null) return candidate;
+            if (!candidate.equals("")) return candidate;
         }
         return "";
     }
 
     private String findDuplicateAt(int index) {
-        for (int k = str.length() - index-1; k > 0; k--) {
-            String candidate = subString(index, index + k);
+        for (int length = str.length() - index-1; length > 0; length--) {
+            String candidate = subString(index, index + length);
             if (isDuplicatedAfter(index, candidate)) return candidate;
         }
-        return null;
+        return "";
     }
 
     private boolean isDuplicatedAfter(int index, String candidate) {
