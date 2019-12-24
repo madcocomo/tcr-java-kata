@@ -16,7 +16,7 @@ public class DuplicateSubStringFinder {
         return "";
     }
 
-    private String subString(int i, int i2) {
-        return str.substring(i, i2);
+    private String subString(int start, int end) {
+        return str.substring(start, end);
     }
 }
