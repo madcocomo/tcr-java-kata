@@ -9,12 +9,18 @@ public class DuplicateSubStringFinder {
 
     public String longest() {
         for (int i = 0; i < str.length(); i++) {
-            for (int k = str.length() - i-1; k > 0; k--) {
-                String candidate = subString(i, i + k);
-                if (isDuplicatedAfter(i, candidate)) return candidate;
-            }
+            String candidate = findDuplicateAt(i);
+            if (candidate != null) return candidate;
         }
         return "";
+    }
+
+    private String findDuplicateAt(int index) {
+        for (int k = str.length() - index-1; k > 0; k--) {
+            String candidate = subString(index, index + k);
+            if (isDuplicatedAfter(index, candidate)) return candidate;
+        }
+        return null;
     }
 
     private boolean isDuplicatedAfter(int index, String candidate) {
