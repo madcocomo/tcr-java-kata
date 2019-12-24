@@ -21,19 +21,17 @@ public class DuplicateSubStringFinder {
     private int longestDuplicateAt(int index) {
         for (int length = 1; index + length <= str.length(); length++) {
             String candidate = subString(index, index + length);
-            if (!isDuplicatedAfter(index, candidate)) return length-1;
+            boolean result = false;
+            int length1 = candidate.length();
+            for (int i = index +1; i+ length1 <= str.length(); i++) {
+                if (candidate.equals(subString(i, i+ length1))) {
+                    result = true;
+                    break;
+                }
+            }
+            if (!result) return length-1;
         }
         return 0;
-    }
-
-    private boolean isDuplicatedAfter(int index, String candidate) {
-        int length = candidate.length();
-        for (int i = index+1; i+length <= str.length(); i++) {
-            if (candidate.equals(subString(i, i+length))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private String subString(int start, int end) {
