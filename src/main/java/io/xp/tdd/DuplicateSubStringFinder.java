@@ -21,7 +21,7 @@ public class DuplicateSubStringFinder {
 
     private boolean isDuplicatedAfter(int i, int k, String candidate) {
         for (int j = i+1; j+k <= str.length(); j++) {
-            if (candidate.equals(subString(j, j+k))) {
+            if (candidate.equals(subString(j, j+candidate.length()))) {
                 return true;
             }
         }
