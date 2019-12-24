@@ -19,14 +19,16 @@ public class DuplicateSubStringFinder {
     }
 
     private int longestDuplicateAt(int index) {
+        int longestAtIndex = 0;
         for (int i = index+1; i < str.length(); i++) {
             int lengthAtI = 0;
             for (int length = 0; length < str.length() - i; length++) {
+                lengthAtI = length;
                 if (str.charAt(index + length) != str.charAt(i+length)) {
                     break;
                 }
-                lengthAtI = length+1;
-           }
+            }
+            longestAtIndex = Math.max(longestAtIndex, lengthAtI);
         }
         for (int length = 1; index + length <= str.length(); length++) {
             String candidate = subString(index, index + length);
