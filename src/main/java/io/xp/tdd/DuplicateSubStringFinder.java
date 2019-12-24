@@ -23,25 +23,14 @@ public class DuplicateSubStringFinder {
         for (int i = index+1; i < str.length(); i++) {
             int lengthAtI = 0;
             for (int length = 0; length < str.length() - i; length++) {
-                lengthAtI = length;
                 if (str.charAt(index + length) != str.charAt(i+length)) {
                     break;
                 }
+                lengthAtI = length+1;
             }
             longestAtIndex = Math.max(longestAtIndex, lengthAtI);
         }
-        for (int length = 1; index + length <= str.length(); length++) {
-            String candidate = subString(index, index + length);
-            boolean result = false;
-            for (int i = index +1; i+ length <= str.length(); i++) {
-                if (candidate.equals(subString(i, i+ length))) {
-                    result = true;
-                    break;
-                }
-            }
-            if (!result) return length-1;
-        }
-        return 0;
+        return longestAtIndex;
     }
 
     private String subString(int start, int end) {
