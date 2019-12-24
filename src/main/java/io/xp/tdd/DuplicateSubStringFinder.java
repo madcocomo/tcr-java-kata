@@ -10,20 +10,20 @@ public class DuplicateSubStringFinder {
     public String longest() {
         String result = "";
         for (int i = 0; i < str.length(); i++) {
-            String candidate = findDuplicateAt(i);
-            if (candidate.length() > result.length()) {
-                result = candidate;
+            int subLength = findDuplicateAt(i);
+            if (subLength > result.length()) {
+                result = subString(i, i+subLength);
             }
         }
         return result;
     }
 
-    private String findDuplicateAt(int index) {
+    private int findDuplicateAt(int index) {
         for (int length = str.length() - index-1; length > 0; length--) {
             String candidate = subString(index, index + length);
-            if (isDuplicatedAfter(index, candidate)) return candidate;
+            if (isDuplicatedAfter(index, candidate)) return candidate.length();
         }
-        return "";
+        return "".length();
     }
 
     private boolean isDuplicatedAfter(int index, String candidate) {
