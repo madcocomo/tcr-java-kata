@@ -9,13 +9,16 @@ public class DuplicateSubStringFinder {
 
     public String longest() {
         String result = "";
+        int longest = 0;
+        int index = 0;
         for (int i = 0; i < str.length(); i++) {
             int subLength = longestDuplicateAt(i);
-            if (subLength > result.length()) {
-                result = subString(i, i+subLength);
+            if (subLength > longest) {
+                longest = subLength;
+                index = i;
             }
         }
-        return result;
+        return subString(index, index+longest);
     }
 
     private int longestDuplicateAt(int index) {
@@ -26,13 +29,13 @@ public class DuplicateSubStringFinder {
         return longestAtIndex;
     }
 
-    private int duplicateLength(int index, int i) {
-        for (int length = 0; length < str.length() - i; length++) {
-            if (str.charAt(index+length) != str.charAt(i+length)) {
+    private int duplicateLength(int index, int anotherIndex) {
+        for (int length = 0; length < str.length() - anotherIndex; length++) {
+            if (str.charAt(index+length) != str.charAt(anotherIndex+length)) {
                 return length;
             }
         }
-        return str.length() - i;
+        return str.length() - anotherIndex;
     }
 
     private String subString(int start, int end) {
