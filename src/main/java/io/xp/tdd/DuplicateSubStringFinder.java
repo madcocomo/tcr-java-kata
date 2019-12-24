@@ -9,13 +9,13 @@ public class DuplicateSubStringFinder {
 
     public String longest() {
         if (str.length() > 1) {
-            for (int i = 1; i < str.length(); i++) {
-                if (subString(0, 1).equals(subString(i, i+1))) {
+            for (int j = 1; j < str.length(); j++) {
+                if (subString(0, 1).equals(subString(j, j+1))) {
                     return subString(0, 1);
                 }
             }
-            for (int i = 1; i < str.length(); i++) {
-                if (subString(1, 2).equals(subString(i, i+1))) {
+            for (int j = 1; j < str.length(); j++) {
+                if (subString(1, 2).equals(subString(j, j+1))) {
                     return subString(1, 2);
                 }
             }
