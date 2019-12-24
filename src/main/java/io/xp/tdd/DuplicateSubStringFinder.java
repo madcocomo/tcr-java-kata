@@ -23,7 +23,7 @@ public class DuplicateSubStringFinder {
         for (int i = index+1; i < str.length(); i++) {
             int length = 0;
             for (; length < str.length() - i; length++) {
-                if (str.charAt(index + length) != str.charAt(i+length)) {
+                if (str.charAt(index+length) != str.charAt(i+length)) {
                     break;
                 }
             }
