@@ -22,7 +22,8 @@ public class DuplicateSubStringFinderTest {
                 Arguments.of("a", ""),
                 Arguments.of("aa", "a"),
                 Arguments.of("aba", "a"),
-                Arguments.of("baca", "a")
+                Arguments.of("baca", "a"),
+                Arguments.of("baba", "ba")
         );
     }
 }
