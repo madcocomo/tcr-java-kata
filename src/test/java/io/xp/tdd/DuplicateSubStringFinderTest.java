@@ -18,8 +18,9 @@ public class DuplicateSubStringFinderTest {
 
     static Stream<Arguments> inputAndExpect() {
         return Stream.of(
-            Arguments.of("", ""),
-            Arguments.of("a", "")
+                Arguments.of("", ""),
+                Arguments.of("a", ""),
+                Arguments.of("aa", "a")
         );
     }
 }
