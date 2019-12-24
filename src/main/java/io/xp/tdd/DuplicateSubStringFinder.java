@@ -8,12 +8,10 @@ public class DuplicateSubStringFinder {
     }
 
     public String longest() {
-        if (str.length() > 1) {
-            for (int i = 0; i < str.length(); i++) {
-                for (int k = str.length() - i; k > 0; k--) {
-                    String candidate = subString(i, i + k);
-                    if (isDuplicatedAfter(i, candidate)) return candidate;
-                }
+        for (int i = 0; i < str.length(); i++) {
+            for (int k = str.length() - i; k > 0; k--) {
+                String candidate = subString(i, i + k);
+                if (isDuplicatedAfter(i, candidate)) return candidate;
             }
         }
         return "";
