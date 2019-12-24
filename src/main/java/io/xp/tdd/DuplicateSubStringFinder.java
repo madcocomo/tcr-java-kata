@@ -27,13 +27,12 @@ public class DuplicateSubStringFinder {
     }
 
     private int duplicateLength(int index, int i) {
-        int length = 0;
-        for (; length < str.length() - i; length++) {
+        for (int length = 0; length < str.length() - i; length++) {
             if (str.charAt(index+length) != str.charAt(i+length)) {
-                break;
+                return length;
             }
         }
-        return length;
+        return str.length() - i;
     }
 
     private String subString(int start, int end) {
