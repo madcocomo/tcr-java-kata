@@ -20,7 +20,8 @@ public class DuplicateSubStringFinderTest {
         return Stream.of(
                 Arguments.of("", ""),
                 Arguments.of("a", ""),
-                Arguments.of("aa", "a")
+                Arguments.of("aa", "a"),
+                Arguments.of("aba", "a")
         );
     }
 }

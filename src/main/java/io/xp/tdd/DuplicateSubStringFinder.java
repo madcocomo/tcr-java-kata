@@ -12,6 +12,9 @@ public class DuplicateSubStringFinder {
             if (subString(0, 1).equals(subString(1, 2))) {
                 return subString(0, 1);
             }
+            if (subString(0, 1).equals(subString(2, 3))) {
+                return subString(0, 1);
+            }
         }
         return "";
     }
