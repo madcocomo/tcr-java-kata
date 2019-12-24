@@ -9,7 +9,7 @@ public class DuplicateSubStringFinder {
 
     public String longest() {
         for (int i = 0; i < str.length(); i++) {
-            for (int k = str.length() - i; k > 0; k--) {
+            for (int k = str.length() - i-1; k > 0; k--) {
                 String candidate = subString(i, i + k);
                 if (isDuplicatedAfter(i, candidate)) return candidate;
             }
