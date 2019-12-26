@@ -2,14 +2,14 @@ package io.xp.tdd;
 
 public class DuplicateSubStringFinder {
     private String str;
-
+    int longest = 0;
+    int index = 0;
+    
     public DuplicateSubStringFinder(String str) {
         this.str = str;
     }
 
     public String longest() {
-        int longest = 0;
-        int index = 0;
         for (int i = 0; i < str.length(); i++) {
             int subLength = longestDuplicateAt(i);
             if (subLength > longest) {
