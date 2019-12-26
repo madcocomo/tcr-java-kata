@@ -4,7 +4,7 @@ public class DuplicateSubStringFinder {
     private String str;
     int longest = 0;
     int index = 0;
-    
+
     public DuplicateSubStringFinder(String str) {
         this.str = str;
     }
@@ -21,6 +21,9 @@ public class DuplicateSubStringFinder {
     }
 
     private int longestDuplicateAt(int index) {
+        if (str.length() - index < longest) {
+            return 0;
+        }
         int longestAtIndex = 0;
         for (int i = index+1; i < str.length(); i++) {
             longestAtIndex = Math.max(longestAtIndex, duplicateLength(index, i));
