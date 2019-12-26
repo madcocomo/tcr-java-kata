@@ -25,7 +25,7 @@ public class DuplicateSubStringFinder {
             return 0;
         }
         int longestAtIndex = 0;
-        for (int i = index+1; i < str.length(); i++) {
+        for (int i = index+1; i < str.length() - longest; i++) {
             longestAtIndex = Math.max(longestAtIndex, duplicateLength(index, i));
         }
         return longestAtIndex;
