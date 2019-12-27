@@ -10,6 +10,9 @@ public class WordWrapper {
         }
         String line;
         line = getLine(text, lineWidth);
+        if (!line.endsWith(LINEBREAK)) {
+            return line + LINEBREAK + wrap(text.substring(line.length()), lineWidth);
+        }
         return line + wrap(text.substring(line.length()), lineWidth);
     }
 
@@ -22,6 +25,6 @@ public class WordWrapper {
         if (boundary > 0) {
             return text.substring(0, boundary) + LINEBREAK;
         }
-        return text.substring(0, lineWidth) + LINEBREAK;
+        return text.substring(0, lineWidth);
     }
 }

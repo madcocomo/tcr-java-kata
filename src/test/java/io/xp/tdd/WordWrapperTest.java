@@ -45,4 +45,9 @@ public class WordWrapperTest {
     void should_not_add_linebreak_if_already_break() {
         assertEquals("an\napple\ntrees", wrapper.wrap("an\napple trees", 8));
     }
+
+    @Test
+    void should_break_word_if_longer_than_line_width() {
+        assertEquals("congratu\nlations", wrapper.wrap("congratulations", 8));
+    }
 }
