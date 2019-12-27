@@ -22,7 +22,7 @@ public class WordWrapper {
                 breakIndex = lineWidth;
             }
             line = text.substring(0, breakIndex) + LINEBREAK;
-            String remained = text.substring(breakIndex + 1);
+            String remained = text.substring(line.length());
             return line + wrap(remained, breakIndex);
         }
     }
