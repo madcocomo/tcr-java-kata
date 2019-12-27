@@ -37,6 +37,11 @@ public class WordWrapperTest {
     }
 
     @Test
+    void multiple_words_in_a_line_edge_case() {
+        assertEquals("an apple\ntrees", wrapper.wrap("an apple trees", 8));
+    }
+
+    @Test
     void should_not_add_linebreak_if_already_break() {
         assertEquals("an\napple\ntrees", wrapper.wrap("an\napple trees", 8));
     }
