@@ -21,8 +21,8 @@ public class WordWrapper {
         } else {
             breakIndex = lineWidth;
         }
-        line = text.substring(0, breakIndex);
+        line = text.substring(0, breakIndex) + LINEBREAK;
         String remained = text.substring(breakIndex + 1);
-        return line + LINEBREAK + wrap(remained, breakIndex);
+        return line + wrap(remained, breakIndex);
     }
 }
