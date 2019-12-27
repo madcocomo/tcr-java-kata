@@ -12,7 +12,7 @@ public class WordWrapper {
         int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (existBreakIndex > 0) {
             line = text.substring(0, existBreakIndex + 1);
-            return line + wrap(text.substring(existBreakIndex+1), lineWidth);
+            return line + wrap(text.substring(line.length()), lineWidth);
         } else {
             int boundary = text.lastIndexOf(' ', lineWidth);
             int breakIndex;
