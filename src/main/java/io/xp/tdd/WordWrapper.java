@@ -10,10 +10,11 @@ public class WordWrapper {
         }
         String line;
         line = getLine(text, lineWidth);
+        String remainder = text.substring(line.length());
         if (!line.endsWith(LINEBREAK)) {
-            return line + LINEBREAK + wrap(text.substring(line.length()), lineWidth);
+            line += LINEBREAK;
         }
-        return line + wrap(text.substring(line.length()), lineWidth);
+        return line + wrap(remainder, lineWidth);
     }
 
     private String getLine(String text, int lineWidth) {
