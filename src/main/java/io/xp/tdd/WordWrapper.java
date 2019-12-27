@@ -9,14 +9,13 @@ public class WordWrapper {
             return text;
         }
         int boundary = text.lastIndexOf(" ", lineWidth);
-        String substring;
         int breakIndex = 0;
         if (boundary > 0) {
             breakIndex = boundary;
         } else {
             breakIndex = lineWidth;
         }
-        substring = text.substring(0, breakIndex);
+        String substring = text.substring(0, breakIndex);
         String remained = text.substring(breakIndex + 1);
         return substring + LINEBREAK + wrap(remained, breakIndex);
     }
