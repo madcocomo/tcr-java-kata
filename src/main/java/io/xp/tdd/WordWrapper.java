@@ -20,15 +20,11 @@ public class WordWrapper {
             return text.substring(0, existBreakIndex + 1);
         } else {
             int boundary = text.lastIndexOf(' ', lineWidth);
-            int breakIndex;
             if (boundary > 0) {
-                breakIndex = boundary;
-                return text.substring(0, breakIndex) + LINEBREAK;
+                return text.substring(0, boundary) + LINEBREAK;
             } else {
-                breakIndex = lineWidth;
+                return text.substring(0, lineWidth) + LINEBREAK;
             }
-            line = text.substring(0, breakIndex) + LINEBREAK;
         }
-        return line;
     }
 }
