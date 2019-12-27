@@ -55,4 +55,9 @@ public class WordWrapperTest {
     void should_break_word_if_longer_than_multiple_lines() {
         assertEquals("congr\natula\ntions", wrapper.wrap("congratulations", 5));
     }
+
+    @Test
+    void lots_words_in_a_line() {
+        assertEquals("a b c\nd e f\ng", wrapper.wrap("a b c d e f g", 5));
+    }
 }
