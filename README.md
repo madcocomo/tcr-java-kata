@@ -1,13 +1,4 @@
-Given a string S, consider all duplicated substrings: (contiguous) substrings of S that occur 2 or more times.  (The occurrences may overlap.)
+Your job is to write a function that takes a string and a maximum number of characters per line and then inserts line breaks as necessary so that no line in the resulting string is longer than the specified limit.
 
-Return any duplicated substring that has the longest possible length.  (If S does not have a duplicated substring, the answer is "".)
-
-Example 1:
-
-     Input: "banana" 
-     Output: "ana"
-
-Example 2:
-
-    Input: "abcd"
-    Output: ""
+If possible, line breaks should not split words. However, if a single word is longer than the limit, it obviously has to be split.
+Really long words may need to be split multiple times.
