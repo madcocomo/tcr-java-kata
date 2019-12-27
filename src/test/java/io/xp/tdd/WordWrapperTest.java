@@ -58,6 +58,6 @@ public class WordWrapperTest {
 
     @Test
     void lots_words_in_a_line() {
-        assertEquals("a bb ccc\ndddd eee\nff g", wrapper.wrap("a bb ccc dddd eee ff g", 8));
+        assertEquals("a bb ccc\ndddddddd\nd eee ff\ng", wrapper.wrap("a bb ccc ddddddddd eee ff g", 8));
     }
 }
