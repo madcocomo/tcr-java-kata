@@ -20,4 +20,9 @@ public class WordWrapperTest {
     void add_multiple_linebreak_right_after_words() {
         assertEquals("apple\ntrees\nyard", wrapper.wrap("apple trees yard", 5));
     }
+
+    @Test
+    void should_not_add_linebreak_at_end() {
+        assertEquals("apple\ntrees", wrapper.wrap("apple trees", 5));
+    }
 }
