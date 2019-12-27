@@ -38,6 +38,6 @@ public class WordWrapperTest {
 
     @Test
     void should_not_add_linebreak_if_already_break() {
-        assertEquals("apple\ntrees", wrapper.wrap("apple\ntrees", 8));
+        assertEquals("an\napple\ntrees", wrapper.wrap("an\napple trees", 8));
     }
 }
