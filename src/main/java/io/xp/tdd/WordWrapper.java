@@ -8,10 +8,10 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        int boundary = text.indexOf(" ");
+        int boundary = text.lastIndexOf(" ", lineWidth);
         String substring;
         int breakIndex = 0;
-        if (boundary < lineWidth) {
+        if (boundary > 0) {
             breakIndex = boundary;
         } else {
             breakIndex = lineWidth;
