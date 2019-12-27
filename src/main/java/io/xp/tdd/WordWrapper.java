@@ -8,8 +8,7 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        String line;
-        line = getLine(text, lineWidth);
+        String line = getLine(text, lineWidth);
         String remainder = text.substring(line.length());
         if (!line.endsWith(LINEBREAK)) {
             line += LINEBREAK;
