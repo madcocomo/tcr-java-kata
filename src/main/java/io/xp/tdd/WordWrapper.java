@@ -13,16 +13,17 @@ public class WordWrapper {
         if (existBreakIndex > 0) {
             line = text.substring(0, existBreakIndex + 1);
             return line + wrap(text.substring(existBreakIndex+1), lineWidth);
-        }
-        int boundary = text.lastIndexOf(' ', lineWidth);
-        int breakIndex;
-        if (boundary > 0) {
-            breakIndex = boundary;
         } else {
-            breakIndex = lineWidth;
+            int boundary = text.lastIndexOf(' ', lineWidth);
+            int breakIndex;
+            if (boundary > 0) {
+                breakIndex = boundary;
+            } else {
+                breakIndex = lineWidth;
+            }
+            line = text.substring(0, breakIndex) + LINEBREAK;
+            String remained = text.substring(breakIndex + 1);
+            return line + wrap(remained, breakIndex);
         }
-        line = text.substring(0, breakIndex) + LINEBREAK;
-        String remained = text.substring(breakIndex + 1);
-        return line + wrap(remained, breakIndex);
     }
 }
