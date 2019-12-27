@@ -35,4 +35,9 @@ public class WordWrapperTest {
     void add_break_at_word_boundary_multiple_words_in_a_line() {
         assertEquals("an apple\ntrees", wrapper.wrap("an apple trees", 10));
     }
+
+    @Test
+    void should_not_add_linebreak_if_already_break() {
+        assertEquals("apple\ntrees", wrapper.wrap("apple\ntrees", 5));
+    }
 }
