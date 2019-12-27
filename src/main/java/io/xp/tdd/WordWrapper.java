@@ -9,9 +9,15 @@ public class WordWrapper {
             return text;
         }
         String line;
+        line = getLine(text, lineWidth);
+        return line + wrap(text.substring(line.length()), lineWidth);
+    }
+
+    private String getLine(String text, int lineWidth) {
+        String line;
         int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (existBreakIndex > 0) {
-            line = text.substring(0, existBreakIndex + 1);
+            return text.substring(0, existBreakIndex + 1);
         } else {
             int boundary = text.lastIndexOf(' ', lineWidth);
             int breakIndex;
@@ -22,7 +28,6 @@ public class WordWrapper {
             }
             line = text.substring(0, breakIndex) + LINEBREAK;
         }
-        String remained = text.substring(line.length());
-        return line + wrap(remained, lineWidth);
+        return line;
     }
 }
