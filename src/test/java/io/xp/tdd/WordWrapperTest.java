@@ -15,4 +15,9 @@ public class WordWrapperTest {
     void add_linebreak_right_after_word() {
         assertEquals("apple\ntree", wrapper.wrap("apple tree", 5));
     }
+
+    @Test
+    void add_multiple_linebreak_right_after_words() {
+        assertEquals("apple\ntrees\nyard", wrapper.wrap("apple trees yard", 5));
+    }
 }
