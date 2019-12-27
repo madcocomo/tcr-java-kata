@@ -12,7 +12,6 @@ public class WordWrapper {
         int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (existBreakIndex > 0) {
             line = text.substring(0, existBreakIndex + 1);
-            return line + wrap(text.substring(line.length()), lineWidth);
         } else {
             int boundary = text.lastIndexOf(' ', lineWidth);
             int breakIndex;
@@ -22,8 +21,8 @@ public class WordWrapper {
                 breakIndex = lineWidth;
             }
             line = text.substring(0, breakIndex) + LINEBREAK;
-            String remained = text.substring(line.length());
-            return line + wrap(remained, breakIndex);
         }
+        String remained = text.substring(line.length());
+        return line + wrap(remained, lineWidth);
     }
 }
