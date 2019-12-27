@@ -23,6 +23,7 @@ public class WordWrapper {
             int breakIndex;
             if (boundary > 0) {
                 breakIndex = boundary;
+                return text.substring(0, breakIndex) + LINEBREAK;
             } else {
                 breakIndex = lineWidth;
             }
