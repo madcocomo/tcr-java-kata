@@ -8,7 +8,16 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        String remained = text.substring(lineWidth + 1);
-        return text.substring(0, lineWidth) + LINEBREAK + wrap(remained, lineWidth);
+        int boundary = text.indexOf(" ");
+        String substring;
+        int breakIndex = 0;
+        if (boundary < lineWidth) {
+            breakIndex = boundary;
+        } else {
+            breakIndex = lineWidth;
+        }
+        substring = text.substring(0, breakIndex);
+        String remained = text.substring(breakIndex + 1);
+        return substring + LINEBREAK + wrap(remained, breakIndex);
     }
 }

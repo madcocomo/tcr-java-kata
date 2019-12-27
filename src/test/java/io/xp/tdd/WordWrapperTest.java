@@ -25,4 +25,9 @@ public class WordWrapperTest {
     void should_not_add_linebreak_at_end() {
         assertEquals("apple\ntrees", wrapper.wrap("apple trees", 5));
     }
+
+    @Test
+    void add_break_at_word_boundary_if_next_above_length() {
+        assertEquals("apple\ntrees", wrapper.wrap("apple trees", 8));
+    }
 }
