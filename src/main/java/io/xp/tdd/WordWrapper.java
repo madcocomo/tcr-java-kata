@@ -21,9 +21,6 @@ public class WordWrapper {
         if (existBreakIndex > 0) {
             return text.substring(0, existBreakIndex + 1);
         }
-        if (text.charAt(lineWidth) == '-') {
-            return text.substring(0, lineWidth);
-        }
         if (text.charAt(lineWidth) == ' ') {
             return text.substring(0, lineWidth) + LINEBREAK;
         }
@@ -32,7 +29,11 @@ public class WordWrapper {
                 return text.substring(0, i) + LINEBREAK;
             }
             if (text.charAt(i) == '-') {
-                return text.substring(0, i + 1);
+                if (i < lineWidth) {
+                    return text.substring(0, i + 1);
+                } else {
+                    return text.substring(0, i);
+                }
             }
         }
         return text.substring(0, lineWidth);
