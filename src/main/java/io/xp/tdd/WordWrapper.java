@@ -22,17 +22,7 @@ public class WordWrapper {
         if (line != null) return line;
         line = getLineAtSpace(text, lineWidth);
         if (line != null) return line;
-        line = getLineAtNoWords(text, lineWidth);
-        if (line != null) return line;
         return text.substring(0, lineWidth);
-    }
-
-    private String getLineAtNoWords(String text, int lineWidth) {
-        int boundary = text.lastIndexOf('-', lineWidth-1);
-        if (boundary > 0) {
-            return text.substring(0, boundary+1);
-        }
-        return null;
     }
 
     private String getLineAtSpace(String text, int lineWidth) {
