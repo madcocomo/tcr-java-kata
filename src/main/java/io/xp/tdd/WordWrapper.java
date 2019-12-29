@@ -36,6 +36,11 @@ public class WordWrapper {
     }
 
     private String getLineAtSpace(String text, int lineWidth) {
+        for (int i = lineWidth; i >= 0; i--) {
+           if (text.charAt(i) == ' ') {
+               return text.substring(0, i) + LINEBREAK;
+           }
+        }
         int boundary = text.lastIndexOf(' ', lineWidth);
         if (boundary > 0) {
             return text.substring(0, boundary) + LINEBREAK;
