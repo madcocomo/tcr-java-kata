@@ -23,16 +23,16 @@ public class WordWrapper {
         }
         if (text.charAt(lineWidth) == '-') {
             return text.substring(0, lineWidth);
-        } else if (text.charAt(lineWidth) == ' ') {
+        }
+        if (text.charAt(lineWidth) == ' ') {
             return text.substring(0, lineWidth) + LINEBREAK;
-        } else {
-            for (int i = lineWidth - 1; i >= 0; i--) {
-                if (text.charAt(i) == ' ') {
-                    return text.substring(0, i) + LINEBREAK;
-                }
-                if (text.charAt(i) == '-') {
-                    return text.substring(0, i + 1);
-                }
+        }
+        for (int i = lineWidth - 1; i >= 0; i--) {
+            if (text.charAt(i) == ' ') {
+                return text.substring(0, i) + LINEBREAK;
+            }
+            if (text.charAt(i) == '-') {
+                return text.substring(0, i + 1);
             }
         }
         return text.substring(0, lineWidth);
