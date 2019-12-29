@@ -21,26 +21,20 @@ public class WordWrapper {
         if (existBreakIndex > 0) {
             return text.substring(0, existBreakIndex + 1);
         }
-        String line;
-        String result1 = null;
         if (text.charAt(lineWidth) == '-') {
-            result1 = text.substring(0, lineWidth);
+            return text.substring(0, lineWidth);
         } else if (text.charAt(lineWidth) == ' ') {
-            result1 = text.substring(0, lineWidth) + LINEBREAK;
+            return text.substring(0, lineWidth) + LINEBREAK;
         } else {
             for (int i = lineWidth - 1; i >= 0; i--) {
                 if (text.charAt(i) == ' ') {
-                    result1 = text.substring(0, i) + LINEBREAK;
-                    break;
+                    return text.substring(0, i) + LINEBREAK;
                 }
                 if (text.charAt(i) == '-') {
-                    result1 = text.substring(0, i + 1);
-                    break;
+                    return text.substring(0, i + 1);
                 }
             }
         }
-        line = result1;
-        if (line != null) return line;
         return text.substring(0, lineWidth);
     }
 
