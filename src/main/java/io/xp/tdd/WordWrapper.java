@@ -17,9 +17,7 @@ public class WordWrapper {
     }
 
     private String getLine(String text, int lineWidth) {
-        if (text.charAt(lineWidth) == LINEBREAK) {
-            return text.substring(0, lineWidth + 1);
-        }
+        if (getLineWithExistingBreak(text, lineWidth)) return text.substring(0, lineWidth + 1);
         if (text.charAt(lineWidth) == ' ') {
             return text.substring(0, lineWidth) + LINEBREAK;
         }
@@ -40,5 +38,12 @@ public class WordWrapper {
             }
         }
         return text.substring(0, lineWidth);
+    }
+
+    private boolean getLineWithExistingBreak(String text, int lineWidth) {
+        if (text.charAt(lineWidth) == LINEBREAK) {
+            return true;
+        }
+        return false;
     }
 }
