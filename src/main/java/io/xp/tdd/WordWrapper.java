@@ -21,9 +21,17 @@ public class WordWrapper {
         if (existBreakIndex > 0) {
             return text.substring(0, existBreakIndex + 1);
         }
-        int boundary = text.lastIndexOf(' ', lineWidth);
-        if (boundary > 0) {
-            return text.substring(0, boundary) + LINEBREAK;
+        {
+            int boundary = text.lastIndexOf(' ', lineWidth);
+            if (boundary > 0) {
+                return text.substring(0, boundary) + LINEBREAK;
+            }
+        }
+        {
+            int boundary = text.lastIndexOf('-', lineWidth);
+            if (boundary > 0) {
+                return text.substring(0, boundary+1);
+            }
         }
         return text.substring(0, lineWidth);
     }

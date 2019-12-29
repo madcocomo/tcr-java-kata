@@ -60,4 +60,9 @@ public class WordWrapperTest {
     void lots_words_in_a_line() {
         assertEquals("a bb ccc\ndddddddd\nd eee ff\ng", wrapper.wrap("a bb ccc ddddddddd eee ff g", 8));
     }
+
+    @Test
+    void should_break_at_boundary_other_than_space() {
+        assertEquals("apple-\ntree", wrapper.wrap("apple-tree", 7));
+    }
 }
