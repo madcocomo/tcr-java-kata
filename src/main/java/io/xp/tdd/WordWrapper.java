@@ -2,7 +2,7 @@ package io.xp.tdd;
 
 public class WordWrapper {
 
-    public static final String LINEBREAK = "\n";
+    public static final char LINEBREAK = '\n';
 
     public String wrap(String text, int lineWidth) {
         if (text.length() <= lineWidth) {
@@ -10,7 +10,7 @@ public class WordWrapper {
         }
         String line = getLine(text, lineWidth);
         String remainder = text.substring(line.length());
-        if (!line.endsWith(LINEBREAK)) {
+        if (!line.endsWith(String.valueOf(LINEBREAK))) {
             line += LINEBREAK;
         }
         return line + wrap(remainder, lineWidth);
