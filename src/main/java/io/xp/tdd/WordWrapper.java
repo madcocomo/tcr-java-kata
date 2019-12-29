@@ -20,6 +20,9 @@ public class WordWrapper {
         if (text.charAt(lineWidth) == LINEBREAK) {
             return text.substring(0, lineWidth + 1);
         }
+        if (text.charAt(lineWidth) == ' ') {
+            return text.substring(0, lineWidth) + LINEBREAK;
+        }
         int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (existBreakIndex > 0) {
             return text.substring(0, existBreakIndex + 1);
