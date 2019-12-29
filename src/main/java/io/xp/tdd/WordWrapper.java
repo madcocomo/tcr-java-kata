@@ -26,10 +26,10 @@ public class WordWrapper {
                 return text.substring(0, i) + LINEBREAK;
             }
             if (text.charAt(i) == '-') {
-                if (i < lineWidth) {
-                    return text.substring(0, i + 1);
-                } else {
+                if (i == lineWidth) {
                     return text.substring(0, i);
+                } else {
+                    return text.substring(0, i + 1);
                 }
             }
         }
