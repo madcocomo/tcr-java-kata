@@ -28,7 +28,7 @@ public class WordWrapper {
             }
         }
         {
-            int boundary = text.lastIndexOf('-', lineWidth);
+            int boundary = text.lastIndexOf('-', lineWidth-1);
             if (boundary > 0) {
                 return text.substring(0, boundary+1);
             }

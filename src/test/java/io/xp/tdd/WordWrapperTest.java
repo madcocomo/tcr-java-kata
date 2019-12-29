@@ -63,7 +63,7 @@ public class WordWrapperTest {
 
     @Test
     void should_break_at_boundary_other_than_space() {
-        assertEquals("apple-\ntree", wrapper.wrap("apple-tree", 5));
+        assertEquals("apple\n-tree", wrapper.wrap("apple-tree", 5));
         assertEquals("apple-\ntree", wrapper.wrap("apple-tree", 6));
         assertEquals("apple-\ntree", wrapper.wrap("apple-tree", 7));
     }
