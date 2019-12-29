@@ -17,10 +17,8 @@ public class WordWrapper {
     }
 
     private String getLine(String text, int lineWidth) {
-        int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
-        if (existBreakIndex > 0) {
-            return text.substring(0, existBreakIndex + 1);
-        }
+        String existBreakIndex1 = getLineAtBreak(text, lineWidth);
+        if (existBreakIndex1 != null) return existBreakIndex1;
         {
             int boundary = text.lastIndexOf(' ', lineWidth);
             if (boundary > 0) {
@@ -34,6 +32,14 @@ public class WordWrapper {
             }
         }
         return text.substring(0, lineWidth);
+    }
+
+    private String getLineAtBreak(String text, int lineWidth) {
+        int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
+        if (existBreakIndex > 0) {
+            return text.substring(0, existBreakIndex + 1);
+        }
+        return null;
     }
 
 }
