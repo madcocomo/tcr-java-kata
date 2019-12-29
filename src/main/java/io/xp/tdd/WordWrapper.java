@@ -21,9 +21,6 @@ public class WordWrapper {
         if (existBreakIndex > 0) {
             return text.substring(0, existBreakIndex + 1);
         }
-        if (text.charAt(lineWidth) == ' ') {
-            return text.substring(0, lineWidth) + LINEBREAK;
-        }
         for (int i = lineWidth; i >= 0; i--) {
             if (text.charAt(i) == ' ') {
                 return text.substring(0, i) + LINEBREAK;
