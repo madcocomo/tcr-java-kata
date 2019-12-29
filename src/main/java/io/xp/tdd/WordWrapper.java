@@ -20,12 +20,12 @@ public class WordWrapper {
         String line;
         line = getLineAtBreak(text, lineWidth);
         if (line != null) return line;
-        line = getLineAtSpace(text, lineWidth);
+        line = getLineAtBoundary(text, lineWidth);
         if (line != null) return line;
         return text.substring(0, lineWidth);
     }
 
-    private String getLineAtSpace(String text, int lineWidth) {
+    private String getLineAtBoundary(String text, int lineWidth) {
         if (text.charAt(lineWidth) == '-') {
             return text.substring(0, lineWidth);
         }
@@ -33,9 +33,9 @@ public class WordWrapper {
             return text.substring(0, lineWidth) + LINEBREAK;
         }
         for (int i = lineWidth-1; i >= 0; i--) {
-           if (text.charAt(i) == ' ') {
-               return text.substring(0, i) + LINEBREAK;
-           }
+            if (text.charAt(i) == ' ') {
+                return text.substring(0, i) + LINEBREAK;
+            }
             if (text.charAt(i) == '-') {
                 return text.substring(0, i+1);
             }
