@@ -17,14 +17,11 @@ public class WordWrapper {
     }
 
     private String getLine(String text, int lineWidth) {
-        String line;
-        String result = null;
         int existBreakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (existBreakIndex > 0) {
-            result = text.substring(0, existBreakIndex + 1);
+            return text.substring(0, existBreakIndex + 1);
         }
-        line = result;
-        if (line != null) return line;
+        String line;
         String result1 = null;
         if (text.charAt(lineWidth) == '-') {
             result1 = text.substring(0, lineWidth);
