@@ -41,10 +41,6 @@ public class WordWrapper {
                return text.substring(0, i) + LINEBREAK;
            }
         }
-        int boundary = text.lastIndexOf(' ', lineWidth);
-        if (boundary > 0) {
-            return text.substring(0, boundary) + LINEBREAK;
-        }
         return null;
     }
 
