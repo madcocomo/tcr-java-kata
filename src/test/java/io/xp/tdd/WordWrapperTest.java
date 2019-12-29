@@ -71,5 +71,6 @@ public class WordWrapperTest {
         assertEquals("an apple\n-tree", wrapper.wrap("an apple-tree", 8));
         assertEquals("an apple-\ntree", wrapper.wrap("an apple-tree", 9));
         assertEquals("an apple-\ntree", wrapper.wrap("an apple-tree", 10));
+        assertEquals("an\napple-\ntree", wrapper.wrap("an apple-tree", 7));
     }
 }
