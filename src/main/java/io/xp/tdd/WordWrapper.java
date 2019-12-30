@@ -8,8 +8,9 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        if (text.indexOf(" ") >= 0) {
-            return "an\napple";
+        int index = text.indexOf(" ");
+        if (index >= 0) {
+            return text.substring(0, index) + LINEBREAK + "apple";
         }
         String remainder = text.substring(lineWidth);
         return  text.substring(0, lineWidth) + LINEBREAK + format(remainder, lineWidth);
