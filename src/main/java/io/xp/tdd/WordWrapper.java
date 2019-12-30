@@ -9,7 +9,7 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        int index = text.lastIndexOf(SPACE);
+        int index = text.lastIndexOf(SPACE, lineWidth);
         String remainder;
         String line;
         if (index >= 0) {

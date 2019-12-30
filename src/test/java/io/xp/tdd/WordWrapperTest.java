@@ -35,4 +35,9 @@ public class WordWrapperTest {
     void should_add_break_at_last_space() {
         assertEquals("an apple\ntree", wrapper.format("an apple tree", 10));
     }
+
+    @Test
+    void should_add_multiple_breaks_at_space() {
+        assertEquals("an\napple\ntree", wrapper.format("an apple tree", 5));
+    }
 }
