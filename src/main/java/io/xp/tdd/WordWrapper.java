@@ -2,22 +2,22 @@ package io.xp.tdd;
 
 public class WordWrapper {
     public String format(String text, int lineWidth) {
-        LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
+        LineExtractor lineExtractor = new LineExtractor(text, lineWidth);
         StringBuilder result = new StringBuilder();
-        while (lineAndRemainder.hasNextLine()) {
-            result.append(lineAndRemainder.nextLine());
+        while (lineExtractor.hasNextLine()) {
+            result.append(lineExtractor.nextLine());
         }
         return result.toString();
     }
 
-    private class LineAndRemainder {
+    private class LineExtractor {
         public static final String LINEBREAK = "\n";
         public static final String SPACE = " ";
         private int lineWidth;
         private String remainder;
         private String line;
 
-        public LineAndRemainder(String text, int lineWidth) {
+        public LineExtractor(String text, int lineWidth) {
             this.remainder = text;
             this.lineWidth = lineWidth;
         }
