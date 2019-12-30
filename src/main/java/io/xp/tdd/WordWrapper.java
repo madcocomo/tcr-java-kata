@@ -33,13 +33,8 @@ public class WordWrapper {
         }
 
         public void nextLine() {
-            resetLine();
             boolean extracted = extractLineShorterThanWidth() || extractAtExistingBreak()
                     || extractAtSpace() || extractAtLineWidth();
-        }
-
-        private void resetLine() {
-            line = null;
         }
 
         private boolean extractLineShorterThanWidth() {
@@ -75,10 +70,6 @@ public class WordWrapper {
                 return true;
             }
             return false;
-        }
-
-        private boolean isExtracted() {
-            return line != null;
         }
 
         private boolean hasNextLine() {
