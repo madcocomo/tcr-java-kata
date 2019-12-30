@@ -3,12 +3,13 @@ package io.xp.tdd;
 public class WordWrapper {
 
     public static final String LINEBREAK = "\n";
+    public static final String SPACE = " ";
 
     public String format(String text, int lineWidth) {
         if (text.length() <= lineWidth) {
             return text;
         }
-        int index = text.indexOf(" ");
+        int index = text.indexOf(SPACE);
         String remainder;
         String line;
         if (index >= 0) {
