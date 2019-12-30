@@ -5,8 +5,7 @@ public class WordWrapper {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         StringBuilder result = new StringBuilder();
         while (lineAndRemainder.hasNextLine()) {
-            lineAndRemainder.nextLine();
-            result.append(lineAndRemainder.getLine());
+            result.append(lineAndRemainder.nextLine());
         }
         return result.toString();
     }
