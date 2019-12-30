@@ -6,7 +6,8 @@ public class WordWrapper {
         lineAndRemainder.extractOneLine();
         String result = lineAndRemainder.getLine();
         while (!lineAndRemainder.remainder.isEmpty()) {
-            return result + format(lineAndRemainder.getRemainder(), lineWidth);
+            lineAndRemainder.extractOneLine();
+            result += lineAndRemainder.getLine();
         }
         return result;
     }
