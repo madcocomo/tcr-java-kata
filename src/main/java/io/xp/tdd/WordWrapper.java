@@ -9,7 +9,7 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        int breakIndex = text.lastIndexOf("\n", lineWidth);
+        int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (breakIndex >= 0) {
             return "an\napple tree";
         }
