@@ -4,10 +4,11 @@ public class WordWrapper {
     public String format(String text, int lineWidth) {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         lineAndRemainder.extractOneLine();
+        String result = lineAndRemainder.getLine();
         while (!lineAndRemainder.remainder.isEmpty()) {
-            return lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
+            return result + format(lineAndRemainder.getRemainder(), lineWidth);
         }
-        return  lineAndRemainder.getLine();
+        return result;
     }
 
     private class LineAndRemainder {
