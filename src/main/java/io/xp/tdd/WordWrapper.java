@@ -34,10 +34,8 @@ public class WordWrapper {
         }
 
         public void extractOneLine() {
-            int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
-            if (breakIndex >= 0) {
-                line = text.substring(0, breakIndex+1);
-                remainder = text.substring(breakIndex+1);
+            extractAtExistingBreak();
+            if (line != null) {
                 return;
             }
             int index = text.lastIndexOf(SPACE, lineWidth);
@@ -48,6 +46,16 @@ public class WordWrapper {
                 line = text.substring(0, lineWidth)+LINEBREAK;
                 remainder = text.substring(lineWidth);
             }
+        }
+
+        private boolean extractAtExistingBreak() {
+            int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
+            if (breakIndex >= 0) {
+                line = text.substring(0, breakIndex+1);
+                remainder = text.substring(breakIndex+1);
+                return true;
+            }
+            return false;
         }
     }
 }
