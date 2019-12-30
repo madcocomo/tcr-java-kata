@@ -10,7 +10,7 @@ public class WordWrapper {
         while (!lineAndRemainder.remainder.isEmpty()) {
             return lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
         }
-        return  lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
+        return  lineAndRemainder.getLine();
     }
 
     private class LineAndRemainder {
