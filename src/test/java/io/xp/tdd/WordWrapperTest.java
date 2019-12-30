@@ -10,4 +10,10 @@ public class WordWrapperTest {
         WordWrapper wrapper = new WordWrapper();
         assertEquals("apple", wrapper.format("apple", 10));
     }
+
+    @Test
+    void should_add_break_at_line_width() {
+        WordWrapper wrapper = new WordWrapper();
+        assertEquals("apple\ntree", wrapper.format("appletree", 5));
+    }
 }
