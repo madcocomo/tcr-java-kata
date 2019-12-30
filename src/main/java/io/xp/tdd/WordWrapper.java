@@ -14,7 +14,6 @@ public class WordWrapper {
     }
 
     private class LineAndRemainder {
-        private boolean myResult;
         private String text;
         private int lineWidth;
         private String remainder;
@@ -24,11 +23,7 @@ public class WordWrapper {
             this.text = text;
             this.lineWidth = lineWidth;
         }
-
-        boolean is() {
-            return myResult;
-        }
-
+        
         public String getRemainder() {
             return remainder;
         }
