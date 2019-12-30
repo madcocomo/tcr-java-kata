@@ -35,17 +35,21 @@ public class WordWrapper {
 
         public void extractOneLine() {
             extractAtExistingBreak();
-            if (line != null) {
+            if (isExtracted()) {
                 return;
             }
             int index = text.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
                 line = text.substring(0, index)+LINEBREAK;
                 remainder = text.substring(index+1);
-            } else {
-                line = text.substring(0, lineWidth)+LINEBREAK;
-                remainder = text.substring(lineWidth);
+                return;
             }
+            line = text.substring(0, lineWidth)+LINEBREAK;
+            remainder = text.substring(lineWidth);
+        }
+
+        private boolean isExtracted() {
+            return line != null;
         }
 
         private boolean extractAtExistingBreak() {
