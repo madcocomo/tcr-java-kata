@@ -38,14 +38,22 @@ public class WordWrapper {
             if (isExtracted()) {
                 return;
             }
-            int index = text.lastIndexOf(SPACE, lineWidth);
-            if (index >= 0) {
-                line = text.substring(0, index)+LINEBREAK;
-                remainder = text.substring(index+1);
+            extractAtSpace();
+            if (isExtracted()) {
                 return;
             }
             line = text.substring(0, lineWidth)+LINEBREAK;
             remainder = text.substring(lineWidth);
+        }
+
+        private boolean extractAtSpace() {
+            int index = text.lastIndexOf(SPACE, lineWidth);
+            if (index >= 0) {
+                line = text.substring(0, index)+LINEBREAK;
+                remainder = text.substring(index+1);
+                return true;
+            }
+            return false;
         }
 
         private boolean isExtracted() {
