@@ -5,7 +5,7 @@ public class WordWrapper {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         lineAndRemainder.extractOneLine();
         String result = lineAndRemainder.getLine();
-        while (!lineAndRemainder.remainder.isEmpty()) {
+        while (lineAndRemainder.hasNextLine()) {
             lineAndRemainder.extractOneLine();
             result += lineAndRemainder.getLine();
         }
@@ -34,9 +34,8 @@ public class WordWrapper {
 
         public void extractOneLine() {
             line = null;
-            if (remainder.length() <= lineWidth) {
-                line = remainder;
-                remainder = "";
+            extractLineShorterThanWidth();
+            if (isExtracted()) {
                 return;
             }
             extractAtExistingBreak();
@@ -48,6 +47,15 @@ public class WordWrapper {
                 return;
             }
             extractAtLineWidth();
+        }
+
+        private boolean extractLineShorterThanWidth() {
+            if (remainder.length() <= lineWidth) {
+                line = remainder;
+                remainder = "";
+                return true;
+            }
+            return false;
         }
 
         public void extractAtLineWidth() {
@@ -73,6 +81,10 @@ public class WordWrapper {
 
         private boolean isExtracted() {
             return line != null;
+        }
+
+        private boolean hasNextLine() {
+            return !remainder.isEmpty();
         }
     }
 }
