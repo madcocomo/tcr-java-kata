@@ -3,8 +3,7 @@ package io.xp.tdd;
 public class WordWrapper {
     public String format(String text, int lineWidth) {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
-        lineAndRemainder.nextLine();
-        StringBuilder result = new StringBuilder(lineAndRemainder.getLine());
+        StringBuilder result = new StringBuilder();
         while (lineAndRemainder.hasNextLine()) {
             lineAndRemainder.nextLine();
             result.append(lineAndRemainder.getLine());
