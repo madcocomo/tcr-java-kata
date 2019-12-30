@@ -9,6 +9,5 @@ public class WordWrapperTest {
     void should_keep_same_if_shorter_than_line_width() {
         WordWrapper wrapper = new WordWrapper();
         assertEquals("apple", wrapper.format("apple", 10));
-
     }
 }
