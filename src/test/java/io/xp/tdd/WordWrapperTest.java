@@ -50,4 +50,9 @@ public class WordWrapperTest {
     void should_not_add_empty_line_at_end() {
         assertEquals("apple\n", wrapper.format("apple ", 5));
     }
+
+    @Test
+    void should_not_add_break_after_existing_break() {
+        assertEquals("an\napple tree", wrapper.format("an\napple tree", 10));
+    }
 }

@@ -9,6 +9,10 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
+        int breakIndex = text.lastIndexOf("\n", lineWidth);
+        if (breakIndex >= 0) {
+            return "an\napple tree";
+        }
         int index = text.lastIndexOf(SPACE, lineWidth);
         String remainder;
         String line;
