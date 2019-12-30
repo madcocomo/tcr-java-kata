@@ -2,9 +2,6 @@ package io.xp.tdd;
 
 public class WordWrapper {
     public String format(String text, int lineWidth) {
-        if (text.length() <= lineWidth) {
-            return text;
-        }
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         lineAndRemainder.extractOneLine();
         while (!lineAndRemainder.remainder.isEmpty()) {
