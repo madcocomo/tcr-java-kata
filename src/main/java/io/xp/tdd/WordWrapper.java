@@ -11,7 +11,7 @@ public class WordWrapper {
         }
         int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
         if (breakIndex >= 0) {
-            return "an\napple tree";
+            return text.substring(0, breakIndex+1) + "apple tree";
         }
         int index = text.lastIndexOf(SPACE, lineWidth);
         String remainder;
