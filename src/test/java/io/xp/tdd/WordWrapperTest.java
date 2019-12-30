@@ -27,7 +27,12 @@ public class WordWrapperTest {
     }
 
     @Test
-    void should_add_break_before_line_width() {
+    void should_add_break_at_space_before_line_width() {
         assertEquals("an\napple", wrapper.format("an apple", 5));
+    }
+
+    @Test
+    void should_add_break_at_last_space() {
+        assertEquals("an apple\ntree", wrapper.format("an apple tree", 10));
     }
 }
