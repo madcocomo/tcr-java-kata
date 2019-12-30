@@ -9,11 +9,10 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth).invoke();
-        if (lineAndRemainder.is()) return lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
-        String remainder = lineAndRemainder.getRemainder();
-        String line = lineAndRemainder.getLine();
-        return  line + LINEBREAK + format(remainder, lineWidth);
+        LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth).extractOneLine();
+        if (lineAndRemainder.is())
+            return lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
+        return  lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
     }
 
     private class LineAndRemainder {
@@ -40,23 +39,21 @@ public class WordWrapper {
             return line;
         }
 
-        public LineAndRemainder invoke() {
+        public LineAndRemainder extractOneLine() {
             int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
             if (breakIndex >= 0) {
                 line = text.substring(0, breakIndex+1);
                 remainder = text.substring(breakIndex+1);
-                myResult = true;
                 return this;
             }
             int index = text.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
                 remainder = text.substring(index+1);
-                line = text.substring(0, index);
+                line = text.substring(0, index)+LINEBREAK;
             } else {
                 remainder = text.substring(lineWidth);
-                line = text.substring(0, lineWidth);
+                line = text.substring(0, lineWidth)+LINEBREAK;
             }
-            myResult = false;
             return this;
         }
     }
