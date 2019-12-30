@@ -7,6 +7,9 @@ public class WordWrapper {
         }
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         lineAndRemainder.extractOneLine();
+        while (!lineAndRemainder.remainder.isEmpty()) {
+            return lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
+        }
         return  lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
     }
 
