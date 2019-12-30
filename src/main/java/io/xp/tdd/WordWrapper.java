@@ -34,8 +34,9 @@ public class WordWrapper {
 
         public void nextLine() {
             resetLine();
-            if (extractLineShorterThanWidth() || extractAtExistingBreak()) return;
-            extractAtSpace();
+            if (extractLineShorterThanWidth() || extractAtExistingBreak()
+                || extractAtSpace()
+                ) return;
             if (isExtracted()) {
                 return;
             }
