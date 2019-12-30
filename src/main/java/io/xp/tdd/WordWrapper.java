@@ -32,6 +32,7 @@ public class WordWrapper {
         }
 
         public void extractOneLine() {
+            line = null;
             if (remainder.length() <= lineWidth) {
                 line = remainder;
                 remainder = "";
