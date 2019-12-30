@@ -1,10 +1,6 @@
 package io.xp.tdd;
 
 public class WordWrapper {
-
-    public static final String LINEBREAK = "\n";
-    public static final String SPACE = " ";
-
     public String format(String text, int lineWidth) {
         if (text.length() <= lineWidth) {
             return text;
@@ -14,6 +10,8 @@ public class WordWrapper {
     }
 
     private class LineAndRemainder {
+        public static final String LINEBREAK = "\n";
+        public static final String SPACE = " ";
         private String text;
         private int lineWidth;
         private String remainder;
