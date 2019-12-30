@@ -3,10 +3,10 @@ package io.xp.tdd;
 public class WordWrapper {
     public String format(String text, int lineWidth) {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
-        lineAndRemainder.extractOneLine();
+        lineAndRemainder.nextLine();
         String result = lineAndRemainder.getLine();
         while (lineAndRemainder.hasNextLine()) {
-            lineAndRemainder.extractOneLine();
+            lineAndRemainder.nextLine();
             result += lineAndRemainder.getLine();
         }
         return result;
@@ -32,8 +32,8 @@ public class WordWrapper {
             return line;
         }
 
-        public void extractOneLine() {
-            line = null;
+        public void nextLine() {
+            line = resetLine();
             extractLineShorterThanWidth();
             if (isExtracted()) {
                 return;
@@ -49,13 +49,15 @@ public class WordWrapper {
             extractAtLineWidth();
         }
 
-        private boolean extractLineShorterThanWidth() {
+        private String resetLine() {
+            return null;
+        }
+
+        private void extractLineShorterThanWidth() {
             if (remainder.length() <= lineWidth) {
                 line = remainder;
                 remainder = "";
-                return true;
             }
-            return false;
         }
 
         public void extractAtLineWidth() {
