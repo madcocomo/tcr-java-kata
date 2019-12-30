@@ -22,21 +22,10 @@ public class WordWrapper {
             this.lineWidth = lineWidth;
         }
 
-        public String getRemainder() {
-            return remainder;
-        }
-
-        public String getLine() {
-            return line;
-        }
-
         public String nextLine() {
             boolean extracted = extractLineShorterThanWidth() || extractAtExistingBreak()
                     || extractAtSpace() || extractAtLineWidth();
-            if (extracted) {
-                return line;
-            }
-            return "";
+            return line;
         }
 
         private boolean extractLineShorterThanWidth() {
@@ -48,7 +37,7 @@ public class WordWrapper {
             return false;
         }
 
-        public boolean extractAtLineWidth() {
+        private boolean extractAtLineWidth() {
             line = remainder.substring(0, lineWidth)+LINEBREAK;
             remainder = remainder.substring(lineWidth);
             return true;
