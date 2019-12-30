@@ -15,4 +15,9 @@ public class WordWrapperTest {
     void should_add_break_at_line_width() {
         assertEquals("apple\ntree", wrapper.format("appletree", 5));
     }
+
+    @Test
+    void should_not_add_break_at_end() {
+        assertEquals("apple", wrapper.format("apple", 5));
+    }
 }
