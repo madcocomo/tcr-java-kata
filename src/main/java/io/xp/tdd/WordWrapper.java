@@ -4,12 +4,12 @@ public class WordWrapper {
     public String format(String text, int lineWidth) {
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         lineAndRemainder.nextLine();
-        String result = lineAndRemainder.getLine();
+        StringBuilder result = new StringBuilder(lineAndRemainder.getLine());
         while (lineAndRemainder.hasNextLine()) {
             lineAndRemainder.nextLine();
-            result += lineAndRemainder.getLine();
+            result.append(lineAndRemainder.getLine());
         }
-        return result;
+        return result.toString();
     }
 
     private class LineAndRemainder {
