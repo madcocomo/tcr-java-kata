@@ -42,11 +42,11 @@ public class WordWrapper {
             }
             int index = text.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
-                remainder = text.substring(index+1);
                 line = text.substring(0, index)+LINEBREAK;
+                remainder = text.substring(index+1);
             } else {
-                remainder = text.substring(lineWidth);
                 line = text.substring(0, lineWidth)+LINEBREAK;
+                remainder = text.substring(lineWidth);
             }
         }
     }
