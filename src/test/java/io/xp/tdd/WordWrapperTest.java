@@ -25,4 +25,9 @@ public class WordWrapperTest {
     void should_add_multiple_breaks() {
         assertEquals("anap\nplet\nree", wrapper.format("anappletree", 4));
     }
+
+    @Test
+    void should_add_break_before_line_width() {
+        assertEquals("an\napple", wrapper.format("an apple", 5));
+    }
 }
