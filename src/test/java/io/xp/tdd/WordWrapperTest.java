@@ -45,4 +45,9 @@ public class WordWrapperTest {
     void should_not_leave_space_at_line_beginning() {
         assertEquals("apple\ntree", wrapper.format("apple tree", 5));
     }
+
+    @Test
+    void should_not_add_empty_line_at_end() {
+        assertEquals("apple\n", wrapper.format("apple ", 5));
+    }
 }
