@@ -6,6 +6,7 @@ public class WordWrapper {
             return text;
         }
         LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
+        lineAndRemainder.extractOneLine();
         return  lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
     }
 
@@ -20,7 +21,6 @@ public class WordWrapper {
         public LineAndRemainder(String text, int lineWidth) {
             this.text = text;
             this.lineWidth = lineWidth;
-            extractOneLine();
         }
 
         public String getRemainder() {
@@ -43,7 +43,7 @@ public class WordWrapper {
             extractAtLineWidth();
         }
 
-        private void extractAtLineWidth() {
+        public void extractAtLineWidth() {
             line = text.substring(0, lineWidth)+LINEBREAK;
             remainder = text.substring(lineWidth);
         }
