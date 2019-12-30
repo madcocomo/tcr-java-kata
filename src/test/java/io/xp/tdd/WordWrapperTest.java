@@ -40,4 +40,9 @@ public class WordWrapperTest {
     void should_add_multiple_breaks_at_space() {
         assertEquals("an\napple\ntree", wrapper.format("an apple tree", 5));
     }
+
+    @Test
+    void should_not_leave_space_at_line_beginning() {
+        assertEquals("apple\ntree", wrapper.format("apple tree", 5));
+    }
 }
