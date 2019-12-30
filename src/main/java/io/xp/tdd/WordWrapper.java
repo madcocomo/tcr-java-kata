@@ -31,9 +31,13 @@ public class WordWrapper {
             return line;
         }
 
-        public void nextLine() {
+        public String nextLine() {
             boolean extracted = extractLineShorterThanWidth() || extractAtExistingBreak()
                     || extractAtSpace() || extractAtLineWidth();
+            if (extracted) {
+                return line;
+            }
+            return "";
         }
 
         private boolean extractLineShorterThanWidth() {
