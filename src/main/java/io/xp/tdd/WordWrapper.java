@@ -10,7 +10,8 @@ public class WordWrapper {
         }
         int index = text.indexOf(" ");
         if (index >= 0) {
-            return text.substring(0, index) + LINEBREAK + "apple";
+            String remainder = text.substring(index+1);
+            return text.substring(0, index) + LINEBREAK + remainder;
         }
         String remainder = text.substring(lineWidth);
         return  text.substring(0, lineWidth) + LINEBREAK + format(remainder, lineWidth);
