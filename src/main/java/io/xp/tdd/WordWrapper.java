@@ -16,13 +16,12 @@ public class WordWrapper {
     private class LineAndRemainder {
         public static final String LINEBREAK = "\n";
         public static final String SPACE = " ";
-        private String text;
         private int lineWidth;
         private String remainder;
         private String line;
 
         public LineAndRemainder(String text, int lineWidth) {
-            this.text = text;
+            this.remainder = text;
             this.lineWidth = lineWidth;
         }
 
@@ -35,8 +34,8 @@ public class WordWrapper {
         }
 
         public void extractOneLine() {
-            if (text.length() <= lineWidth) {
-                line = text;
+            if (remainder.length() <= lineWidth) {
+                line = remainder;
                 remainder = "";
                 return;
             }
@@ -52,23 +51,23 @@ public class WordWrapper {
         }
 
         public void extractAtLineWidth() {
-            line = text.substring(0, lineWidth)+LINEBREAK;
-            remainder = text.substring(lineWidth);
+            line = remainder.substring(0, lineWidth)+LINEBREAK;
+            remainder = remainder.substring(lineWidth);
         }
 
         private void extractAtSpace() {
-            int index = text.lastIndexOf(SPACE, lineWidth);
+            int index = remainder.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
-                line = text.substring(0, index)+LINEBREAK;
-                remainder = text.substring(index+1);
+                line = remainder.substring(0, index)+LINEBREAK;
+                remainder = remainder.substring(index+1);
             }
         }
 
         private void extractAtExistingBreak() {
-            int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
+            int breakIndex = remainder.lastIndexOf(LINEBREAK, lineWidth);
             if (breakIndex >= 0) {
-                line = text.substring(0, breakIndex+1);
-                remainder = text.substring(breakIndex+1);
+                line = remainder.substring(0, breakIndex+1);
+                remainder = remainder.substring(breakIndex+1);
             }
         }
 
