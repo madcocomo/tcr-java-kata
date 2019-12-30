@@ -9,8 +9,6 @@ public class WordWrapper {
             return text;
         }
         String remainder = text.substring(lineWidth);
-        if (remainder.length() <= lineWidth)
-            return text.substring(0, lineWidth) + LINEBREAK + remainder;
         return  text.substring(0, lineWidth) + LINEBREAK + format(remainder, lineWidth);
     }
 }
