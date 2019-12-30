@@ -33,12 +33,12 @@ public class WordWrapper {
             return line;
         }
 
-        public LineAndRemainder extractOneLine() {
+        public void extractOneLine() {
             int breakIndex = text.lastIndexOf(LINEBREAK, lineWidth);
             if (breakIndex >= 0) {
                 line = text.substring(0, breakIndex+1);
                 remainder = text.substring(breakIndex+1);
-                return this;
+                return;
             }
             int index = text.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
@@ -48,7 +48,6 @@ public class WordWrapper {
                 remainder = text.substring(lineWidth);
                 line = text.substring(0, lineWidth)+LINEBREAK;
             }
-            return this;
         }
     }
 }
