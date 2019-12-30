@@ -20,4 +20,9 @@ public class WordWrapperTest {
     void should_not_add_break_at_end() {
         assertEquals("apple", wrapper.format("apple", 5));
     }
+
+    @Test
+    void should_add_multiple_breaks() {
+        assertEquals("anap\nplet\nree", wrapper.format("anappletree", 4));
+    }
 }
