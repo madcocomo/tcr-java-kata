@@ -33,7 +33,7 @@ public class WordWrapper {
         }
 
         public void nextLine() {
-            line = resetLine();
+            resetLine();
             extractLineShorterThanWidth();
             if (isExtracted()) {
                 return;
@@ -49,8 +49,8 @@ public class WordWrapper {
             extractAtLineWidth();
         }
 
-        private String resetLine() {
-            return null;
+        private void resetLine() {
+            line = null;
         }
 
         private void extractLineShorterThanWidth() {
