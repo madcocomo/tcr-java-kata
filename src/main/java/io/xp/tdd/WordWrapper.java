@@ -9,7 +9,7 @@ public class WordWrapper {
         if (text.length() <= lineWidth) {
             return text;
         }
-        LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth).extractOneLine();
+        LineAndRemainder lineAndRemainder = new LineAndRemainder(text, lineWidth);
         return  lineAndRemainder.getLine() + format(lineAndRemainder.getRemainder(), lineWidth);
     }
 
@@ -22,8 +22,9 @@ public class WordWrapper {
         public LineAndRemainder(String text, int lineWidth) {
             this.text = text;
             this.lineWidth = lineWidth;
+            extractOneLine();
         }
-        
+
         public String getRemainder() {
             return remainder;
         }
