@@ -9,11 +9,15 @@ public class WordWrapper {
             return text;
         }
         int index = text.indexOf(" ");
+        String remainder;
+        String line;
         if (index >= 0) {
-            String remainder = text.substring(index+1);
-            return text.substring(0, index) + LINEBREAK + remainder;
+            remainder = text.substring(index+1);
+            line = text.substring(0, index);
+        } else {
+            remainder = text.substring(lineWidth);
+            line = text.substring(0, lineWidth);
         }
-        String remainder = text.substring(lineWidth);
-        return  text.substring(0, lineWidth) + LINEBREAK + format(remainder, lineWidth);
+        return  line + LINEBREAK + format(remainder, lineWidth);
     }
 }
