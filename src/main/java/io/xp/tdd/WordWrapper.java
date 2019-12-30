@@ -53,32 +53,39 @@ public class WordWrapper {
             line = null;
         }
 
-        private void extractLineShorterThanWidth() {
+        private boolean extractLineShorterThanWidth() {
             if (remainder.length() <= lineWidth) {
                 line = remainder;
                 remainder = "";
+                return true;
             }
+            return false;
         }
 
-        public void extractAtLineWidth() {
+        public boolean extractAtLineWidth() {
             line = remainder.substring(0, lineWidth)+LINEBREAK;
             remainder = remainder.substring(lineWidth);
+            return true;
         }
 
-        private void extractAtSpace() {
+        private boolean extractAtSpace() {
             int index = remainder.lastIndexOf(SPACE, lineWidth);
             if (index >= 0) {
                 line = remainder.substring(0, index)+LINEBREAK;
                 remainder = remainder.substring(index+1);
+                return true;
             }
+            return false;
         }
 
-        private void extractAtExistingBreak() {
+        private boolean extractAtExistingBreak() {
             int breakIndex = remainder.lastIndexOf(LINEBREAK, lineWidth);
             if (breakIndex >= 0) {
                 line = remainder.substring(0, breakIndex+1);
                 remainder = remainder.substring(breakIndex+1);
+                return true;
             }
+            return false;
         }
 
         private boolean isExtracted() {
